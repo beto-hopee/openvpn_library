@@ -217,6 +217,7 @@ public class OpenVpnManagementThread implements Runnable, OpenVPNManagement {
 
                 pendingInput = processInput(pendingInput);
 
+                VpnStatus.logDebug("123");
 
             }
         } catch (IOException e) {
