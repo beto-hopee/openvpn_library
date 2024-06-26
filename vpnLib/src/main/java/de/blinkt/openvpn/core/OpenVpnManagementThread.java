@@ -285,13 +285,12 @@ public class OpenVpnManagementThread implements Runnable, OpenVPNManagement {
     }
 
     private void processCommand(String command) {
-        //Log.i(TAG, "Line from managment" + command);
-
+        Log.i(TAG, "Line from managment" + command);
         if (command.startsWith(">") && command.contains(":")) {
             String[] parts = command.split(":", 2);
             String cmd = parts[0].substring(1);
             String argument = parts[1];
-            println("Command: " + cmd + " Argument: " + argument);
+            Log.i(TAG, "Command: " + cmd + " Argument: " + argument);
             switch (cmd) {
                 case "INFO":
                 /* Ignore greeting from management */

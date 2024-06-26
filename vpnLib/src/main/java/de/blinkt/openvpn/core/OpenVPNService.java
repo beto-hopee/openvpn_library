@@ -1367,8 +1367,8 @@ public class OpenVPNService extends VpnService implements StateListener, Callbac
             return;
         }
 
-        // updateStateString trigger the notification of the VPN to be refreshed, save this intent
-        // to have that notification also this intent to be set
+        // updateStateString trigger the notification of the VPN to be refreshed, save this intentt o have that notification also this intent to be set
+
         PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
         VpnStatus.updateStateString("USER_INPUT", "waiting for user input", reason, LEVEL_WAITING_FOR_USER_INPUT, intent);
         nbuilder.setContentIntent(pIntent);
