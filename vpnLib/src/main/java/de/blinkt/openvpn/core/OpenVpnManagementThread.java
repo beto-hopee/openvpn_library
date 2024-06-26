@@ -5,6 +5,8 @@
 
 package de.blinkt.openvpn.core;
 
+import static java.sql.DriverManager.println;
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.LocalServerSocket;
@@ -289,7 +291,7 @@ public class OpenVpnManagementThread implements Runnable, OpenVPNManagement {
             String[] parts = command.split(":", 2);
             String cmd = parts[0].substring(1);
             String argument = parts[1];
-
+            println("Command: " + cmd + " Argument: " + argument);
             switch (cmd) {
                 case "INFO":
                 /* Ignore greeting from management */
