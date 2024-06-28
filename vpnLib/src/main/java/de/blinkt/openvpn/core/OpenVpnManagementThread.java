@@ -5,8 +5,6 @@
 
 package de.blinkt.openvpn.core;
 
-import static java.sql.DriverManager.println;
-
 import android.content.Context;
 import android.content.Intent;
 import android.net.LocalServerSocket;
@@ -274,13 +272,13 @@ public class OpenVpnManagementThread implements Runnable, OpenVPNManagement {
 
         while (pendingInput.contains("\n")) {
             String[] tokens = pendingInput.split("\\r?\\n", 2);
-            println("tokens 0 : " + tokens[0]);
+            Log.i(TAG,"tokens 0 : " + tokens[0]);
             processCommand(tokens[0]);
             if (tokens.length == 1)
                 // No second part, newline was at the end
                 pendingInput = "";
             else
-                println("tokens 1:" + tokens[1]);
+                Log.i(TAG,"tokens 1:" + tokens[1]);
                 pendingInput = tokens[1];
         }
         return pendingInput;
@@ -290,10 +288,10 @@ public class OpenVpnManagementThread implements Runnable, OpenVPNManagement {
         Log.i(TAG, "Line from managment" + command);
         if (command.startsWith(">") && command.contains(":")) {
             String[] parts = command.split(":", 2);
-            println("parts 0 : " + parts[0]);
+            Log.i(TAG,"parts 0 : " + parts[0]);
             String cmd = parts[0].substring(1);
             String argument = parts[1];
-            println("argument 0 : " + parts[1]);
+            Log.i(TAG,"argument 0 : " + parts[1]);
             Log.i(TAG, "Command: " + cmd + " Argument: " + argument);
             switch (cmd) {
                 case "INFO":
